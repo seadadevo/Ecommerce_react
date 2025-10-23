@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import  { useContext, useEffect } from "react";
 import { DataContext } from "../context/DataContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { defaultSliderSettings } from "../utils/sliderSettings";
 
 const Carosual = () => {
   const { data, fetchAllProducts } = useContext(DataContext);
@@ -12,75 +12,10 @@ const Carosual = () => {
     fetchAllProducts();
   }, []);
 
-  const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        onClick={onClick}
-        className={`arrow ${className}`}
-        style={{ zIndex: 3 }}
-      >
-        <AiOutlineArrowRight
-          className="arrows"
-          style={{
-            ...style,
-            display: "block",
-            borderRadius: "50px",
-            backgroundColor: "#f53347",
-            color: "white",
-            position: "absolute",
-            padding: "2px",
-            right: "50px",
-          }}
-          onMouseEnter={(e) => (e.target.style.backgroundColor = "#555")}
-          onMouseLeave={(e) => (e.target.style.backgroundColor = "#f53347")}
-        />
-      </div>
-    );
-  };
-  const SamplePrevArrow = (props) => {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        onClick={onClick}
-        className={`arrow ${className}`}
-        style={{ zIndex: 3 }}
-      >
-        <AiOutlineArrowLeft
-          className="arrows"
-          style={{
-            ...style,
-            display: "block",
-            borderRadius: "50px",
-            backgroundColor: "#f53347",
-            color: "white",
-            position: "absolute",
-            padding: "2px",
-            left: "50px",
-          }}
-          onMouseEnter={(e) => (e.target.style.backgroundColor = "#555")}
-          onMouseLeave={(e) => (e.target.style.backgroundColor = "#f53347")}
-        />
-      </div>
-    );
-  };
-
-  var settings = {
-    dots: false,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    pauseOnHover: false,
-    nextArrow: <SampleNextArrow to="next" />,
-    prevArrow: <SamplePrevArrow to="prev" />,
-  };
 
   return (
     <div>
-      <Slider {...settings}>
+      <Slider {...defaultSliderSettings}>
         {data?.slice(0, 7)?.map((item, index) => {
           return (
             <div
