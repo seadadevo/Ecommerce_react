@@ -1,9 +1,9 @@
-import React from 'react'
+import Carosual from '../components/Carosual'
 
 const Home = () => {
   return (
     <div>
-      Home
+      <Carosual/>
     </div>
   )
 }
