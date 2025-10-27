@@ -11,6 +11,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import HeaderLink from "./UI/HeaderLink";
+import Logo from "./UI/Logo";
 
 const NavBar = ({ location, getLocation,openDropDown , setOpenDropDown }) => {
   
@@ -20,12 +21,7 @@ const NavBar = ({ location, getLocation,openDropDown , setOpenDropDown }) => {
         {/* Logo part */}
         <div className="flex items-center gap-7">
           {/* 1 Logo  */}
-          <Link to={"/"}>
-            <h1 className="font-bold text-3xl">
-              <span className="text-red-500 font-serif">S</span>eada
-              <span className="text-red-500 font-serif">M</span>art
-            </h1>
-          </Link>
+          <Logo/>
           {/* 2 Location */}
           <div
             onClick={() => setOpenDropDown(!openDropDown)}

@@ -1,6 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, ArrowUp, Send } from "lucide-react";
+import Logo from "./UI/Logo";
+
+const col1Data = [
+  "123 Clothes St, Style City, NY 10001",
+  "Email: support@seadamart.com",
+  "Phone: (123) 456-7890",
+];
+
+const customerServiceData = [
+  "Contact Us",
+  "Shipping & Returns",
+  "FAQs",
+  "Order Tracking",
+  "Size Guide",
+];
+
+const linksData = [
+  {
+    name: "Facebook",
+    content: <Facebook size={22} />,
+  },
+  {
+    name: "Instagram",
+    content: <Instagram size={22} />,
+  },
+  {
+    name: "Twitter",
+    content: <Twitter size={22} />,
+  },
+];
+
+const renderCurtomerService = customerServiceData.map((item, idx) => (
+  <li key={idx}>
+    <a href="#" className="hover:text-white transition-colors">
+      {item}
+    </a>
+  </li>
+));
+
+const renderLinkData = linksData.map((item) => (
+  <a
+    key={item.name}
+    href="#"
+    aria-label={item.name}
+    className="text-gray-300 hover:text-red-500 transition"
+  >
+    {item.content}
+  </a>
+));
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -16,19 +65,14 @@ const Footer = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="mb-6 md:mb-0">
-              <Link to={"/"}>
-                <h1 className="font-bold text-3xl mb-3">
-                  <span className="text-red-500 font-serif">S</span>eada
-                  <span className="text-red-500 font-serif">M</span>art
-                </h1>
-              </Link>
+            <Logo/>
               <p className="text-sm mb-4">
-                Powering Your World with the Best in Electronics.
+                Powering Your World with the Best in Clothes.
               </p>
               <div className="space-y-2 text-sm">
-                <p>123 Electronics St, Style City, NY 10001</p>
-                <p>Email: support@seadamart.com</p>
-                <p>Phone: (123) 456-7890</p>
+                {col1Data.map((item, idx) => (
+                  <p key={idx}>{item}</p>
+                ))}
               </div>
             </div>
 
@@ -36,62 +80,14 @@ const Footer = () => {
               <h3 className="text-lg font-semibold text-white mb-4">
                 Customer Service
               </h3>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Shipping & Returns
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    FAQs
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Order Tracking
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Size Guide
-                  </a>
-                </li>
-              </ul>
+              <ul className="space-y-2 text-sm">{renderCurtomerService}</ul>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold text-white mb-4">
                 Follow Us
               </h3>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  aria-label="Facebook"
-                  className="text-gray-300 hover:text-red-500 transition"
-                >
-                  <Facebook size={22} />
-                </a>
-                <a
-                  href="#"
-                  aria-label="Instagram"
-                  className="text-gray-300 hover:text-red-500 transition"
-                >
-                  <Instagram size={22} />
-                </a>
-                <a
-                  href="#"
-                  aria-label="Twitter"
-                  className="text-gray-300 hover:text-red-500 transition"
-                >
-                  <Twitter size={22} />
-                </a>
-              </div>
+              <div className="flex space-x-4">{renderLinkData}</div>
             </div>
 
             <div>
