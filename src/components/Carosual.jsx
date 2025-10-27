@@ -6,8 +6,9 @@ import Slider from "react-slick";
 import { defaultSliderSettings } from "../utils/sliderSettings";
 
 const Carosual = () => {
-  const { data, fetchAllProducts } = useContext(DataContext);
+  const { data, fetchAllProducts, categories } = useContext(DataContext);
   console.log("DATA FROM CONTEXT:", data);
+  console.log("Cateogies:", categories);
   useEffect(() => {
     fetchAllProducts();
   }, []);
@@ -25,7 +26,7 @@ const Carosual = () => {
               <div className="flex gap-10 justify-center h-[600px] items-center px-4">
                 <div className="space-y-6">
                   <h3 className="text-red-500 font-semibold font-sans text-sm">
-                    Powering Your world with the best in electronics
+                    Powering Your world with the best in Clothes
                   </h3>
                   <h1 className="text-4xl font-bold uppercase line-clamp-3 md:w-[500px] text-white">
                     {item.title}
