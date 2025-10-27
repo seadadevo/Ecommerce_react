@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import NavBar from "./components/NavBar";
 import useLocation from "./utils/useLocation";
+import Footer from "./components/Footer";
 
 const App = () => {
   const { location, getLocation } = useLocation();
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 };

@@ -6,7 +6,7 @@ const Category = () => {
     useContext(DataContext);
 
   return (
-    <div className="bg-[#1b173d] w-full min-h-screen py-8">
+    <div className="bg-[#1b173d] w-full py-8">
       <div className="container mx-auto px-6">
         <h1 className="text-3xl font-bold text-white mb-6 text-center">
           Categories
